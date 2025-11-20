@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator Web App</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4"
+  >
+    <!-- Watermark -->
+    <div class="watermark">Developed by Rubaiyat</div>
+    <div class="container max-w-md mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">
+          🔓 Password Generator
+        </h1>
+        <p class="text-center text-gray-600 mb-6">
+          Create strong and secure passwords
+        </p>
+
+        <!-- Password Display Area -->
+        <div class="flex items-center mb-6">
+          <input
+            readonly
+            placeholder="Your password will appear here"
+            class="display w-full p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
+            data-passwordDisplay
+          />
+          <button
+            data-copy
+            class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-r-lg transition-colors duration-200 flex items-center justify-center"
+          >
+            <span data-copyMsg class="mr-1"></span>
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+
+        <!-- Password Length Control -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center mb-2">
+            <p class="text-gray-700 font-medium">Password Length</p>
+            <p data-lengthNumber class="text-blue-600 font-bold text-lg">10</p>
+          </div>
+          <input
+            type="range"
+            min="4"
+            max="20"
+            step="1"
+            value="10"
+            data-lengthSlider
+            class="slider w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          />
+        </div>
+
+        <!-- Character Options -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="uppercase"
+              class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+              checked
+            />
+            <label for="uppercase" class="ml-2 text-gray-700"
+              >Include Uppercase Letters (A-Z)</label
+            >
+          </div>
+
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="lowercase"
+              class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+              checked
+            />
+            <label for="lowercase" class="ml-2 text-gray-700"
+              >Include Lowercase Letters (a-z)</label
+            >
+          </div>
+
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="numbers"
+              class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+              checked
+            />
+            <label for="numbers" class="ml-2 text-gray-700"
+              >Include Numbers (0-9)</label
+            >
+          </div>
+
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="symbols"
+              class="h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+              checked
+            />
+            <label for="symbols" class="ml-2 text-gray-700"
+              >Include Symbols (!@#$%^&*)</label
+            >
+          </div>
+        </div>
+
+        <!-- Password Strength Indicator -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center mb-2">
+            <p class="text-gray-700 font-medium">Password Strength</p>
+            <p data-strengthText class="text-gray-600 font-medium">Medium</p>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div data-indicator class="strength-indicator strength-2"></div>
+          </div>
+        </div>
+
+        <!-- Generate Button -->
+        <button
+          class="generateButton w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-md"
+        >
+          🚀 Generate Password
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
